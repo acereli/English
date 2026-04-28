@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic English 8-Week Trainer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Academic English 8-Week Trainer</h1>
+        <p>IELTS 6.5–7.0 preparation path for Canadian college readiness</p>
+      </div>
+      <div class="top-stats" id="topStats"></div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar card">
+        <h2>Program Navigator</h2>
+        <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+        <button class="nav-btn" data-section="listening">Listening</button>
+        <button class="nav-btn" data-section="speaking">Speaking</button>
+        <button class="nav-btn" data-section="reading">Reading</button>
+        <button class="nav-btn" data-section="writing">Writing</button>
+        <button class="nav-btn" data-section="plan">8-Week Plan</button>
+        <button class="nav-btn" data-section="reports">Weekly Report</button>
+      </aside>
+
+      <section class="content">
+        <section id="dashboard" class="card section active">
+          <h2>Learning Dashboard</h2>
+          <div class="grid two">
+            <article class="panel">
+              <h3>Daily Study Timer</h3>
+              <p>Recommended: <strong>2h30</strong></p>
+              <div class="timer" id="timerValue">00:00:00</div>
+              <div class="row">
+                <button id="startTimer">Start</button>
+                <button id="pauseTimer">Pause</button>
+                <button id="resetTimer">Reset</button>
+              </div>
+            </article>
+
+            <article class="panel">
+              <h3>Seneca Readiness Score</h3>
+              <div class="score-ring">
+                <span id="readinessScore">0</span>
+              </div>
+              <p id="readinessLabel">Getting started</p>
+            </article>
+          </div>
+
+          <div class="grid two">
+            <article class="panel">
+              <h3>Skill Progress</h3>
+              <div id="skillProgress"></div>
+            </article>
+            <article class="panel">
+              <h3>Gamification</h3>
+              <ul id="gamificationList"></ul>
+            </article>
+          </div>
+
+          <article class="panel">
+            <h3>Personalized Weak-Point Analysis</h3>
+            <p id="weakPoints"></p>
+          </article>
+        </section>
+
+        <section id="listening" class="card section">
+          <h2>Listening Module</h2>
+          <p>Daily university lecture with 2-pass strategy.</p>
+          <div class="lecture-wrap">
+            <iframe id="lectureVideo" src="https://www.youtube.com/embed/4xDzrJKXOOY" title="University Lecture" allowfullscreen></iframe>
+            <div>
+              <h3 id="lectureTitle"></h3>
+              <ol>
+                <li>Listen once: write the main idea in one sentence.</li>
+                <li>Listen again: capture 3 key points.</li>
+              </ol>
+              <textarea id="listeningNotes" placeholder="Write your general idea + key points..."></textarea>
+              <button id="generateListeningQuestions">Generate comprehension questions</button>
+              <ul id="listeningQuestions"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="speaking" class="card section">
+          <h2>Speaking Module</h2>
+          <div class="grid two">
+            <article class="panel">
+              <h3>IELTS-style Speaking Prompt</h3>
+              <p id="speakingPrompt"></p>
+              <button id="newSpeakingPrompt">New Prompt</button>
+            </article>
+            <article class="panel">
+              <h3>Shadowing Mode</h3>
+              <p id="shadowSentence"></p>
+              <div class="row">
+                <button id="playShadow">Play Native Audio</button>
+                <button id="newShadow">New Sentence</button>
+              </div>
+            </article>
+          </div>
+
+          <article class="panel">
+            <h3>Voice Recording + Playback</h3>
+            <div class="row">
+              <button id="startRecord">Start Recording</button>
+              <button id="stopRecord">Stop</button>
+              <button id="playRecord">Play Recording</button>
+            </div>
+            <p id="recordStatus">Recorder idle.</p>
+            <textarea id="speakingTranscript" placeholder="Paste your transcript or self-reflection for AI feedback..."></textarea>
+            <button id="analyzeSpeaking">Get AI Feedback</button>
+            <div id="speakingFeedback"></div>
+          </article>
+        </section>
+
+        <section id="reading" class="card section">
+          <h2>Reading Module</h2>
+          <div class="grid two">
+            <article class="panel">
+              <h3>Timed Reading Passage</h3>
+              <p id="readingPassage"></p>
+              <div class="row">
+                <button id="startReadingTimer">Start 15-min Timer</button>
+                <span id="readingCountdown">15:00</span>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>IELTS Question Types</h3>
+              <form id="readingForm">
+                <label>1) Multiple choice: What is the central claim?<input name="q1" /></label>
+                <label>2) True / False / Not Given: Universities should reduce reading demands.<input name="q2" /></label>
+                <label>3) Matching heading: Best heading for paragraph 2?<input name="q3" /></label>
+                <button type="submit">Submit Reading Answers</button>
+              </form>
+              <p id="readingScore"></p>
+            </article>
+          </div>
+        </section>
+
+        <section id="writing" class="card section">
+          <h2>Writing Module</h2>
+          <div class="grid two">
+            <article class="panel">
+              <h3>Task 1 Template</h3>
+              <ul>
+                <li>Introduction: paraphrase the prompt.</li>
+                <li>Body 1: overview major trend.</li>
+                <li>Body 2: supporting data/details.</li>
+                <li>Conclusion: summarize key pattern.</li>
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>Task 2 Template</h3>
+              <ul>
+                <li>Introduction with thesis statement.</li>
+                <li>Body Paragraph 1 with evidence.</li>
+                <li>Body Paragraph 2 with counterpoint + rebuttal.</li>
+                <li>Conclusion with recommendation.</li>
+              </ul>
+            </article>
+          </div>
+          <article class="panel">
+            <h3>Essay Practice + AI Correction</h3>
+            <textarea id="essayInput" placeholder="Write your Task 1 or Task 2 essay..."></textarea>
+            <button id="analyzeEssay">Analyze Essay</button>
+            <div id="essayFeedback"></div>
+          </article>
+        </section>
+
+        <section id="plan" class="card section">
+          <h2>8-Week Progression System</h2>
+          <div id="planContent"></div>
+        </section>
+
+        <section id="reports" class="card section">
+          <h2>Weekly Performance Report</h2>
+          <div id="weeklyReport"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
